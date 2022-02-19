@@ -15,6 +15,12 @@ class CreatePostsTable extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->text('body');
+            $table->unsignedBigInteger('user_id');
+            // 長い桁の数値を保存できる
+            $table->foreign('user_id')->references('id')->on('users');
+            // 外部テーブルのuser_idを参照する（foreign キー）
             $table->timestamps();
         });
     }
