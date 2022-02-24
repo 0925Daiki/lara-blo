@@ -51,3 +51,5 @@ Route::get('/post/{id}/edit', 'PostController@edit')->name('posts.edit');
 Route::put('/post/{id}', 'PostController@update')->name('posts.update');
 
 Route::delete('/post/{id}', 'PostController@destroy')->name('posts.destroy');
+
+// Route::resource('/post', 'PostController');
