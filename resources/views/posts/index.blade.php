@@ -13,7 +13,7 @@
               <p class="card-text">
                 内容 : {{ $post->body }}
               </p>
-              <p class="card-text">投稿者：Seed Techさん</p>
+              <p class="card-text">投稿者：{{ $post->user->name }}</p>
               <a href="{{ route('posts.show', $post->id) }}" class="btn btn-primary">詳細へ</a>
           </div>
           <div class="card-footer text-muted">
