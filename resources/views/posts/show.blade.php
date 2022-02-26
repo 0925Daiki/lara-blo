@@ -22,19 +22,21 @@
     </div>
     <div class="row justify-content-center">
       <div class="col-md-8">
-              <button type="button" class="btn btn-primary">コメントする</button>
+              <button type="button" class="btn btn-primary" onclick="location.href='{{ route('comments.create', $post->id) }}'">コメントする</button>
       </div>
     </div>
     <div class="row justify-content-center">
       <div class="col-md-8 mt-5">
         コメント一覧
+        @foreach($post->comments as $comment)
           <div class="card mt-3">
-              <h5 class="card-header">投稿者：Seedさん</h5>
+              <h5 class="card-header">投稿者：{{ $comment->user->name }}</h5>
               <div class="card-body">
-                  <h5 class="card-title">投稿日時：2021/11/08</h5>
-                  <p class="card-text">内容：今日のセブは快晴</p>
+                  <h5 class="card-title">投稿日時：{{ $comment->created_at }}</h5>
+                  <p class="card-text">内容：{{ $comment->body }}</p>
               </div>
           </div>
+        @endforeach
       </div>
     </div>
 </div>
