@@ -9,13 +9,15 @@
                 </div>
                 <div class="card-body">
                 <p class="card-text">内容：{{ $post->body }}</p>
-                <p>投稿日時：{{ $post->created_at }}</p>
-                <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-primary">編集する</a>
-                <form action='{{ route('posts.destroy', $post->id) }}' method='post'>
-                    @csrf
-                    @method('delete')
-                    <input type='submit' value='削除' class="btn btn-danger" onclick='return confirm("本当に削除しますか？");'>
-                </form>
+                @if(Auth::id() == $post->user_id)
+                  <p>投稿日時：{{ $post->created_at }}</p>
+                  <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-primary">編集する</a>
+                  <form action='{{ route('posts.destroy', $post->id) }}' method='post'>
+                      @csrf
+                      @method('delete')
+                      <input type='submit' value='削除' class="btn btn-danger" onclick='return confirm("本当に削除しますか？");'>
+                  </form>
+                @endif
                 </div>
             </div>
         </div>
