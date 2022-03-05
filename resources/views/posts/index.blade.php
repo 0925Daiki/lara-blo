@@ -7,6 +7,7 @@
           <div class="card-header">
               投稿一覧
           </div>
+          <h1>midasi</h1>
           @foreach($posts as $post)
           <div class="card-body">
               <h5 class="card-title">タイトル : {{ $post->title }}</h5>
